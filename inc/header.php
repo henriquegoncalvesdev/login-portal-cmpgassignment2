@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Authenication</title>
+    <title>Phonebook</title>
     <meta name="description" content="This week we will look at how we can protect pages behind a level of authenication.">
     <meta name="robots" content="noindex, nofollow">
     <!-- fonts import -->
@@ -43,7 +43,7 @@
                     <a class="nav-link" href="view.php">Gallery</a>
                   </li>
                   <li class="nav-item me-5">
-                    <a class="nav-link" href="display-user.php">View & Add Data</a>
+                    <a class="nav-link" href="display-user.php">Phonebook</a>
                 </ul>
               </div>
             </div>

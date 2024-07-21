@@ -17,10 +17,10 @@
       $file_extension = pathinfo($target_file, PATHINFO_EXTENSION);
       $file_extension = strtolower($file_extension);
       $valid_extension = array("png","jpeg","jpg","pdf");
+
       if(in_array($file_extension, $valid_extension)) {
-        // Upload file
+
         if(move_uploaded_file($_FILES['files']['tmp_name'][$i], $target_file)){
-          // Execute query
           $statement->execute(
           array($filename,$target_file));
           $uploadSuccess = true; 
@@ -34,10 +34,11 @@
   }
 ?>
     <main>
+        <!-- Site top -->
         <section>
             <div class="container mt-5 text-center">
                 <h1>Welcome</h1>
-                <p>This is a login portal here you can create an account, login, execute the full CRUD after loged in, visualize, insert data and upload images to the gallery!</p>
+                <p>To your phonebook, here you can view phonebook data, create an account, login, upload an image, delete, insert and update data to phone book</p>
             </div>
         </section>
         <section class="form-row row mt-5 text-center">
@@ -50,6 +51,7 @@
                  <a href="login.php"><button type="button" class="btn btn-dark mt-3 btn-login" href="login.php">Login!</button></a>
              </div>
         </section>
+        <!-- Site Bottom -->
         <section class="masthead mt-5 text-center or-section">
             <div>
             <h1>OR</h1>

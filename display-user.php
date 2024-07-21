@@ -2,17 +2,15 @@
 session_start();
 require './inc/header.php';
 
-// check for authentication before we show any data
-    // connect to db
+// Check if user is authenticated
     require './inc/database.php';
 
-    // set up query
+    
     $sql = "SELECT * FROM phpdata";
 
-    // run the query and store the results
+
     $result = $conn->query($sql);
 
-    // start our table
     echo '<section class="person-row text-center">';
     echo '<table class="table table-striped">
                   <tr>
