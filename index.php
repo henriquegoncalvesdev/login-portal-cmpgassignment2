@@ -44,7 +44,7 @@
         <section>
             <div class="container mt-5 text-center">
                 <h1>Phonebook</h1>
-                <p>Here you can view phonebook data, create an account, login, upload an image, delete, insert and update data to phonebook</p>
+                <p>Here you can view phonebook data, create an account, login, upload an image, delete, insert and update data to your phonebook</p>
             </div>
         </section>
         <section class="form-row row mt-5 text-center">
