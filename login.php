@@ -5,7 +5,6 @@
 
 // check if user is logged in
 if (isset($_SESSION['user_id'])) {
-    //redirects to logged in page 
     header("Location: display-person.php");
     exit;
 }

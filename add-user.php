@@ -1,5 +1,4 @@
 <?php
-	// connection
 	require './inc/database.php';
 	// variables
 	$first_name = $_POST['first_name'];
@@ -18,7 +17,7 @@
 
 		
 
-	// decide if we are saving or not
+	
 	if ($ok){
 		$password = hash('sha512', $password);
 		// set up the sql

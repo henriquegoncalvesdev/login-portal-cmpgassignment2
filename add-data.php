@@ -1,29 +1,37 @@
 <?php
+//start or resume session
 session_start();
+//require header and database
 require './inc/header.php';
 require './inc/database.php';
 
+//check if the request method is POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //get the values from post request
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $email = $_POST['email'];
     $telNumber = $_POST['telNumber'];
-
+    // use try and catch to handle exceptions with database connection
     try {
+        //query to insert data into the database
         $sql = "INSERT INTO phpdata (fname, lname, email, telNumber) 
         VALUES (:fname, :lname, :email, :telNumber)";
         $stmt = $conn->prepare($sql);
+        //bind parameters to the SQL query
         $stmt->bindParam(':fname', $fname);
         $stmt->bindParam(':lname', $lname);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':telNumber', $telNumber);
 
+        //executes the query
         if ($stmt->execute()) {
             echo "<p>New record created successfully</p>";
         } else {
             echo "<p>Error: " . $stmt->errorInfo()[2] . "</p>";
         }
     } catch (PDOException $e) {
+        //display error message
         echo "Error: " . $e->getMessage();
     }
     $conn = null;

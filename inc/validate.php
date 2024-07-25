@@ -1,37 +1,33 @@
 <?php
-// store the user inputs in variables and hash the password
 $username = $_POST['username'];
 $password = hash('sha512', $_POST['password']);
 
-// connect to db
 require 'database.php';
 
-// set up and run the query
+// sqk query to check if the user exists with the provided username and password
 $sql = "SELECT user_id, username,first_name,last_name FROM phpusers 
         WHERE username = '$username' AND password = '$password'";
 $result = $conn->query($sql);
 
-// store the number of results in a variable
+// get number of rows
 $count = $result->rowCount();
 
-// check if any matches found
-if ($count == 1) {
+if ($count == 1) { 
+    // if a match is found get user data
     $row = $result->fetch();
 
-    // access the existing session created automatically by the server
+    // set session variables
     session_start();
-    $_SESSION['timeout'] = time() + 600;//seconds
-
-    // take the user's id from the database and store it in a session variable
+    $_SESSION['timeout'] = time() + 600;
     $_SESSION['user_id'] = $row['user_id'];
     $fname = $row['first_name'];
 	$lname = $row['last_name'];
 
-    // Set cookie
-    setcookie('firstname', $fname, time() + 1 * 60, '/');//seconds
-	setcookie('lastname', $lname, time() + 2 * 60, '/');
+    // set cookies for first and last name
+    setcookie('firstname', $fname, time() + 1 * 60, '/');
+	setcookie('lastname', $lname, time() + 1 * 60, '/');
 
-    // redirect the user
+    
     header('Location: ../display-person.php');
 } else {
     echo 'Invalid Login';

@@ -2,22 +2,16 @@
 session_start();
 require './inc/header.php';
 
-// check for authentication before we show any data
+// check for authentication before showing data 
 if (!isset($_SESSION['user_id']) || (time() > $_SESSION['timeout'])) {
-    session_unset();     // Unset all session variables
+    session_unset(); 
     session_destroy();
     header('location: login.php');
 } else {
-    // connect to db
+    //show the data
     require './inc/database.php';
-
-    // set up query
     $sql = "SELECT * FROM phpdata";
-
-    // run the query and store the results
     $result = $conn->query($sql);
-
-    // start our table
     echo '<section class="person-row text-center">';
     echo '<table class="table table-striped">
                   <tr>
@@ -43,8 +37,8 @@ if (!isset($_SESSION['user_id']) || (time() > $_SESSION['timeout'])) {
     // close the table
     echo '</table>';
 
-    // Display the username from the session variable if available
-    
+   
+    //personalized welcome message
         $fname = $_COOKIE['firstname'];
 		$lname = $_COOKIE['lastname'];
         echo '<p>Welcome, ' . $fname .' '.$lname. '!</p>';

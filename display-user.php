@@ -2,15 +2,11 @@
 session_start();
 require './inc/header.php';
 
-// Check if user is authenticated
     require './inc/database.php';
 
-    
+    // display the records in the database table
     $sql = "SELECT * FROM phpdata";
-
-
     $result = $conn->query($sql);
-
     echo '<section class="person-row text-center">';
     echo '<table class="table table-striped">
                   <tr>
@@ -29,14 +25,8 @@ require './inc/header.php';
              </tr>';
     }
     echo '</table>';
-
     echo '<a class="btn btn-dark mt-5 btn-register" href="add-data.php">Add Data</a>';
-
-    
-
     echo '</section>';
-
-   
 
 require './inc/footer.php';
 ?>

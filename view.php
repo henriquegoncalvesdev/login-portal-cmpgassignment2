@@ -9,7 +9,7 @@
 ?>
   <section class="view-masthead text-center mt-5">
     <div>
-      <h1>Image Gallery</h1>
+      <h1>Phonebook Gallery</h1>
     </div>
   </section>
   <section class="image-row row mt-5">

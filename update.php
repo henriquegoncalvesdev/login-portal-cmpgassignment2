@@ -17,6 +17,7 @@ if (!isset($_SESSION['user_id']) || (time() > $_SESSION['timeout'])) {
         $email = $_POST['email'];
         $telNumber = $_POST['telNumber'];
 
+        //sql query to update the record
         $sql = "UPDATE phpdata SET fname = :fname, lname = :lname, email = :email, telNumber = :telNumber WHERE id = :id";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':fname', $fname);
@@ -25,8 +26,9 @@ if (!isset($_SESSION['user_id']) || (time() > $_SESSION['timeout'])) {
         $stmt->bindParam(':telNumber', $telNumber);
         $stmt->bindParam(':id', $id);
 
+        //executes the query and checks if successful
         if ($stmt->execute()) {
-            header('location: display-person.php'); // Redirect to the main page
+            header('location: display-person.php');
         } else {
             echo "Error updating record: " . $stmt->errorInfo()[2];
         }
@@ -39,7 +41,7 @@ if (!isset($_SESSION['user_id']) || (time() > $_SESSION['timeout'])) {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     }
 ?>
-
+<!-- form to update the record -->
 <form method="post" action="update.php" class="form-update">
     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
     <label>First Name:</label>

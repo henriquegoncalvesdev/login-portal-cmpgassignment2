@@ -6,13 +6,11 @@
   $uploadSuccess = false; 
   $valid_file=true;
   if(!empty($_POST)) {
-    // Count total files
     $countfiles = count($_FILES['files']['name']);
-    // Prepared statement
     $query = "INSERT INTO imagestest (name,image) 
     VALUES(?,?)";
     $statement = $conn->prepare($query);
-    // Loop all files
+
     for($i = 0; $i < $countfiles; $i++) {
       // File name
       $filename = $_FILES['files']['name'][$i];
