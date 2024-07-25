@@ -3,7 +3,7 @@
         <a href="index.php"><img src="./img/logo.png" alt="footer logo" width="30%"></a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-6">
-        <h4>Login Portal</h4>
+        <h4>Phonebook</h4>
         <small>&copy; 2024 All rights reserved.</small>
       </div>
       <div class="col-sm-12 col-md-3 col-lg-3">
